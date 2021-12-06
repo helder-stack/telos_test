@@ -59,7 +59,6 @@ export class ContentController{
         return await this.contentService.findById(videoId.id)
     }
 
-    @UseGuards(JwtAuthGuard)
     @Get('watch/:videoName')
     findVideo(@Param('videoName') video, @Res() res){
         return res.sendFile(`${process.cwd()}/uploads/videos/${video}`)
